@@ -1,11 +1,10 @@
 !!=============================================================================
 !! RXVT-unicode setting
 !!=============================================================================
-Rxvt.preeditType:Root
+URxvt.preeditType:Root
 
 !!! Colors
 URxvt.depth:32
-!URxvt.background:#202020
 URxvt.background:#2B2B2B
 URxvt.foreground:white
 URxvt.colorBD:Gray95
@@ -19,126 +18,62 @@ URxvt.color12:DodgerBlue
 URxvt.color14:Cyan2
 URxvt.color15:Gray95
 
-!!! Scroll Bar setting
-Rxvt.scrollBar:True
-Rxvt.scrollBar_right:True
-Rxvt.scrollBar_floating: False
-Rxvt.scrollstyle:plain
-
-!!! Scroll Buffer
-Rxvt.saveLines:10000
-!Rxvt.menu:/etc/X11/rxvt.menu
-
-!!! Input Method Setting
-inputMethod:fcitx
-
-!!! For url select & click support
-URxvt.perl-ext-common:  default,matcher,url-select,keyboard-select,clipboard
-URxvt.url-select.launcher:	google-chrome
-!URxvt.urlLauncher:      google-chrome
-!URxvt.underlineURLs: 	true
-URxvt.url-select.underline:	true
-URxvt.matcher.button:   1
-URxvt.keysym.M-u:    	perl:url-select:select_next
-URxvt.keysym.M-Escape:	perl:keyboard-select:active
-URxvt.keysym.M-s:	perl:keyboard-select:search
-URxvt.keysym.M-c:	perl:clipboard:copy
-URxvt.keysym.M-v:	perl:clipboard:paste
-URxvt.keysym.M-C-v:	perl:clipboard:paste_escaped
-
-!!! Misc Setting
-URxvt.fading:	30
-
 !!! Font Setting
-!Xft.dpi:96
-!Xft.antialias: True
-!Xft.hinting: True
-!Xft.hintstyle: hintslight
-!Xft.lcdfilter: lcddefault
-!Xft.rgba: rgb
-URxvt.font: xft:Tamsyn-11:size=13
-
-!! Terminus XFT font
-!URxvt.font:	xft:Terminus:size=10:antialias=False:hinting=False,\
-!		  xft:WenQuanYi Bitmap Song:size=10:antialias=False:hinting=False
-!URxvt.boldfont:	xft:Terminus:size=10:antialias=False:hinting=False:bold,\
-!		  xft:WenQuanYi Bitmap Song:bold:size=10:antialias=False:hinting=False
-
-!! Monaco XFT Font
-!URxvt.font: xft:Monaco:size=10:antialias=true:hinting=true,\
-!	     xft:WenQuanYi Micro Hei Mono:size=10:antialias=true:hinting=true
-!URxvt.boldfont: xft:Monaco:size=10:antialias=true:hinting=true:bold,\
-!		 xft:WenQuanYi Micro Hei Mono:bold:size=10:antialias=true:hinting=true
-
-!! Dina Font
-!URxvt.font:	-windows-dina-medium-r-*-*-13-*-*-*-*-*-*-*,\
-!		xft:WenQuanYi Bitmap Song:medium:pixelsize=12:antialias=False
-!URxvt.boldFont:	-windows-dina-bold-r-*-*-13-*-*-*-*-*-*-*,\
-!		xft:WenQuanYi Bitmap Song:bold:pixelsize=12:antialias=False
-
-!! Terminus Font
-!URxvt.font:	-xos4-terminus-medium-r-*-*-12-*-*-*-*-*-*-*,\
-!		xft:WenQuanYi Bitmap Song:medium:antialias=False
-!URxvt.boldFont:	-xos4-terminus-bold-r-*-*-12-*-*-*-*-*-*-*,\
-!		xft:WenQuanYi Bitmap Song:bold:antialias=False
-
-!! Envy Code R XFT Font for Powerline
-!URxvt.font: xft:Envy Code R for Powerline:size=12,\
-!	     xft:WenQuanYi Micro Hei Mono:regular
-!URxvt.boldFont: xft:Envy Code R for Powerline:bold:size=12,\
-!		 xft:WenQuanYi Micro Hei Mono:bold
-!URxvt.italicFont: xft:Envy Code R for Powerline:italic:size=12,\
-!		 xft:WenQuanYi Micro Hei Mono:italic
-
-!! Monaco XFT Font for Powerline
-!URxvt.font: xft:Monaco for Powerline:regular:size=10,\
-!		xft:Monaco:regular,\
-!		xft:WenQuanYi Micro Hei Mono:regular
-!URxvt.imFont: xft:Monaco for Powerline:regular:size=10,\
-!		xft:Monaco:regular,\
-!		xft:WenQuanYi Micro Hei Mono:regular
-!URxvt.boldFont: xft:Monaco for Powerline:bold:size=10,\
-!		xft:Monaco:bold,\
-!		xft:WenQuanYi Micro Hei Mono:bold
-!URxvt.italicFont: xft:Monaco for Powerline:italic:size=10,\
-!		xft:Monaco:italic,\
-!		xft:WenQuanYi Micro Hei Mono:italic
-!URxvt.boldItalicFont: xft:Monaco for Powerline:bold:italic:size=10,\
-!		xft:Monaco:bold:italic,\
-!		xft:WenQuanYi Micro Hei Mono:bold:italic
-
-!! Terminus XFT Font for Powerline
-!URxvt.font: xft:Terminus:regular:size=9,\
-!		xft:Terminus for Powerline:regular,\
-!		xft:WenQuanYi Micro Hei Mono:regular
-!URxvt.imFont: xft:Terminus:regular:size=9,\
-!		xft:Terminus for Powerline:regular,\
-!		xft:WenQuanYi Micro Hei Mono:regular
-!URxvt.boldFont: xft:Terminus:bold:size=9,\
-!		xft:Terminus for Powerline:bold,\
-!		xft:WenQuanYi Micro Hei Mono:bold
-!URxvt.italicFont: xft:Terminus:italic:size=9,\
-!		xft:Terminus for Powerline:italic,\
-!		xft:WenQuanYi Micro Hei Mono:italic
-!URxvt.boldItalicFont: xft:Terminus:bold:italic:size=9,\
-!		xft:Terminus for Powerline:bold:italic,\
-!		xft:WenQuanYi Micro Hei Mono:bold:italic
-
-!! Terminus Font with Monaco Powerline
-!URxvt.font: xft:Terminus:regular:size=10,\
-!		xft:Monaco for Powerline:regular:size=12,\
-!		xft:WenQuanYi Bitmap Song:regular:size=9
-!URxvt.imFont: xft:Terminus:regular:size=10,\
-!		xft:Monaco for Powerline:regular:size=12,\
-!		xft:WenQuanYi Bitmap Song:regular:size=9
-!URxvt.boldFont: xft:Terminus:bold:size=10,\
-!		xft:Monaco for Powerline:bold:size=12,\
-!		xft:WenQuanYi Bitmap Song:bold:size=9
-!URxvt.italicFont: xft:Terminus:italic:size=10,\
-!		xft:Monaco for Powerline:italic:size=12,\
-!		xft:WenQuanYi Bitmap Song:italic:size=9
-!URxvt.boldItalicFont: xft:Terminus:bold:italic:size=10,\
-!		xft:Monaco for Powerline:bold:italic:size=12,\
-!		xft:WenQuanYi Bitmap Song:bold:italic:size=9
+Xft.dpi: 99
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
+URxvt.font: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.boldFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.italicFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.bolditalicFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
 
 Xcursor.theme: Human
+
+!!! Scroll Bar setting
+Rxvt.scrollBar: true
+Rxvt.scrollBar_right: true
+Rxvt.scrollBar_floating: false
+Rxvt.scrollstyle: plain
+
+!!! Scroll Buffer
+URxvt.saveLines: 10000
+
+!!! Input Method Setting
+inputMethod: fcitx
+
+!!! For url select & click support
+URxvt.perl-lib: /home/matti-nillu/urxvt-perls/
+URxvt.perl-ext-common:  default,matcher,url-select,keyboard-select,clipboard
+
+!!! matcher
+URxvt.matcher.button:   1
+
+!!! keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+!!! url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: google-chrome
+URxvt.url-select.autocopy: true
+URxvt.url-select.underline: true
+URxvt.url-select.button: 1
+
+!!! clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+!!! to overwrite system commands
+!!URxvt.clipboard.copycmd: xsel -ib
+!!URxvt.clipboard.pastecmd: xsel -ob
+
+!!! if using xclip
+!!URxvt.clipboard.copycmd: xclip -i -selection clipboard
+!!URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+!!! Misc Setting
+URxvt.fading: 30
