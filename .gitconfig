@@ -1,0 +1,86 @@
+[user]
+	name = NagaChaitanya Vellanki
+	email = me@chaitanyavellanki.com
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  ci = commit
+  st = status
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  who = shortlog -s --
+[alias]
+        st = status
+        ci = commit -v
+        cii = commit -v --interactive
+        cia = commit -v -a
+        addi = add --interactive
+        addchanged = add -u
+        br = branch
+        co = checkout
+        diffwords = diff --word-diff
+
+        rebranch = branch -f
+
+        svnpush = svn dcommit
+        svnpull = svn rebase
+
+        pick = cherry-pick -s
+
+        save = stash save
+        savepatch = stash save --patch
+        savescratch = stash save --keep-index
+        pop = stash pop
+
+        praise = blame -w
+        archeology = blame -w -C -n
+        whodoikill = blame -w -C -n
+        logfile = log --follow -C
+        plog = !git log --pretty=format:'%C(yellow)%h%Creset %s %Cblue%d%Creset' --graph --all
+        who = shortlog -sen --
+        grep4d = !sh -c 'git log -p -S'$1' $2' -
+
+        logdate = log --format=format:'%ad %d %h %s %an%n' --date=short
+        brdate = !"sh -c 'for b in `git branch --no-merged` ; \
+                   do git logdate -1 -r $b --; done'"
+
+        up = !git stash && git pull origin master && git stash apply
+
+        stag = tag -s
+        retag = tag -f
+        bookmark = tag -a
+
+        unstage = reset HEAD
+        redo = reset --soft HEAD^
+        clear = reset --hard HEAD
+        undo = reset --hard HEAD^
+
+        repull = pull --rebase
+
+        hist = log --all --graph --pretty='[%C(cyan)%h%Creset]%C(bold cyan)%d%Creset %s'
+
+        mergefeature = merge --no-ff
+
+        export = !sh -c 'git checkout-index --prefix=$1 -a' -
+[http]
+	sslVerify = false
