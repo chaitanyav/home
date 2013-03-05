@@ -1,0 +1,6 @@
+#!/usr/local/bin/ruby
+
+#arts = Dir.glob('art*.txt')
+arts= ['art2.txt', 'art4.txt']
+
+system("cat ~/#{arts.sample}")
