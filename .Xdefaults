@@ -25,10 +25,8 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
-URxvt.font: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
-URxvt.boldFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
-URxvt.italicFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
-URxvt.bolditalicFont: -*-tamsyn-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.font:xft:Tamsyn:autohint=true:pixelsize=14
+URxvt.boldFont:xft:Tamsyn:autohint=true:pixelsize=14
 
 Xcursor.theme: Human
 
