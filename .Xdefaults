@@ -1,6 +1,7 @@
 !!=============================================================================
 !! RXVT-unicode setting
 !!=============================================================================
+URxvt.termname: xterm-256color
 URxvt.preeditType:Root
 
 !!! Colors
@@ -25,8 +26,8 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
-URxvt.font:xft:Tamsyn:autohint=true:pixelsize=14
-URxvt.boldFont:xft:Tamsyn:autohint=true:pixelsize=14
+URxvt.font:xft:Terminus:autohint=true:pixelsize=16
+URxvt.boldFont:xft:Terminus:autohint=true:pixelsize=16
 
 Xcursor.theme: Human
 
