@@ -6,6 +6,7 @@ export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
+setopt correctall
 
 #ubuntu aliases
 alias ai="sudo apt-get install"
