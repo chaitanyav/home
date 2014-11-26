@@ -9,6 +9,7 @@ setopt hist_ignore_space
 setopt correctall
 setopt autocd
 setopt extendedglob
+setopt BRACE_CCL
 autoload -U zargs
 autoload -U zmv
 
