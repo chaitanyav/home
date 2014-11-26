@@ -9,6 +9,8 @@ setopt hist_ignore_space
 setopt correctall
 setopt autocd
 setopt extendedglob
+autoload -U zargs
+autoload -U zmv
 
 #ubuntu aliases
 alias ai="sudo apt-get install"
