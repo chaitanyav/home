@@ -86,5 +86,8 @@ export LESS_TERMCAP_ue=$default
 # Begin underline
 export LESS_TERMCAP_us=$green
 
+#git clone https://github.com/pindexis/qfc $HOME/.qfc
+[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
+
 ~/./art
 ~/./fortune_teller
