@@ -7,5 +7,5 @@ tellers = tellers.first.split(/\s/)
 tellers.shuffle!(random: Random.new(1))
 
 programs = ['cowsay', 'cowthink']
-system("fortune -as | #{programs.sample} -e eyes -T tongue -f #{tellers.sample}")
+system("fortune -as | #{programs.sample} -e eyes -T tongue -f #{tellers.sample} | lolcat")
 

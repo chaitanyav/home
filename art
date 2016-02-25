@@ -3,4 +3,4 @@
 #arts = Dir.glob('art*.txt')
 arts= ['art2.txt', 'art4.txt']
 
-system("cat ~/#{arts.sample}")
+system("cat ~/#{arts.sample} | lolcat")
