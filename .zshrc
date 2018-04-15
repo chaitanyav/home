@@ -104,3 +104,4 @@ man() {
 
 ~/./art
 ~/./fortune_teller
+setopt extendedglob
