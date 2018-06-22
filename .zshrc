@@ -102,6 +102,10 @@ man() {
 #git clone https://github.com/pindexis/qfc $HOME/.qfc
 [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH=$HOME:$PATH
 ~/./art
 ~/./fortune_teller
 setopt extendedglob

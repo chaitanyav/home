@@ -15,3 +15,11 @@
 (setq column-number-mode t)
 (setq line-number-mode t)
 (setq show-paren-mode t)
+(require 'package)
+(add-to-list 'package-archives
+	                  '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Better imenu
+(add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
