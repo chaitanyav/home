@@ -1,6 +1,6 @@
 [user]
 	name = NagaChaitanya Vellanki
-	email = nagachaitanya.vellanki@gmail.com
+	email = pnagato@protonmail.com
 [color]
   branch = auto
   diff = auto
@@ -87,7 +87,7 @@
 [push]
 	default = simple
 [core]
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/emacs -nw
 	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [color "diff-highlight"]
 	oldNormal = red bold
