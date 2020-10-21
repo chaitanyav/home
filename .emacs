@@ -27,7 +27,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken rust-mode))
 
 
 ; fetch the list of packages available
@@ -59,3 +59,7 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
+(require 'rust-mode)
+(add-hook 'rust-mode-hook
+          (lambda () (setq indent-tabs-mode nil)))
+(setq rust-format-on-save t)
