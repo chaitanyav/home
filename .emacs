@@ -28,7 +28,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide))
 
 
 					; fetch the list of packages available
@@ -104,4 +104,22 @@
 (setq centaur-tabs-set-bar 'over)
 (setq x-underline-at-descent-line t)
 (setq centaur-tabs-enable-key-bindings t)
-(centaur-tabs-mode 1)
+(centaur-tabs-mode t)
+
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-create-new-buffer 'always)
+(ido-mode t)
+
+(require 'format-all)
+(add-hook 'prog-mode-hook 'format-all-mode)
+
+(require 'whitespace-cleanup-mode)
+(add-hook 'prog-mode-hook 'whitespace-cleanup-mode)
+
+(require 'origami)
+(add-hook 'prog-mode-hook 'origami-mode)
+
+(require 'indent-guide)
+(add-hook 'prog-mode-hook 'indent-guide-mode)
