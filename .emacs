@@ -28,14 +28,14 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs))
 
 
-; fetch the list of packages available
+					; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
 
-; install the missing packages
+					; install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
@@ -44,7 +44,7 @@
 
 (elpy-enable)
 
-; Use IPython for REPL
+					; Use IPython for REPL
 (setq python-shell-interpreter "jupyter"
       python-shell-interpreter-args "console --simple-prompt"
       python-shell-prompt-detect-failure-warning nil)
@@ -97,3 +97,11 @@
 (require 'popup-kill-ring)
 
 (require 'ace-jump-mode)
+(setq ace-jump-mode t)
+
+(require 'centaur-tabs)
+(setq centaur-tabs-set-icons t)
+(setq centaur-tabs-set-bar 'over)
+(setq x-underline-at-descent-line t)
+(setq centaur-tabs-enable-key-bindings t)
+(centaur-tabs-mode 1)
