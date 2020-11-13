@@ -141,7 +141,6 @@
 (sml/setup)
 
 (require 'treemacs)
-(treemacs-mode t)
 
 (require 'kaolin-themes)
 (load-theme 'kaolin-valley-dark)
