@@ -28,8 +28,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu))
-
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -39,8 +38,6 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
-(load-theme 'afternoon t)
 
 (elpy-enable)
 
@@ -79,14 +76,14 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
-(require 'powerline)
-;;(powerline-default-theme)
-
 (require 'highlight-symbol)
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 (setq highlight-symbol-on-navigation-p t)
 ;;(global-set-key [f3] 'highlight-symbol-next)
 ;;(global-set-key [(shift f3)] 'highlight-symbol-prev)
+
+(require 'highlight-numbers)
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 (require 'highlight-parentheses)
 (add-hook 'prog-mode-hook 'highlight-parentheses-mode)
@@ -138,3 +135,10 @@
 (ace-popup-menu-mode t)
 
 (require 'ace-window)
+
+(require 'smart-mode-line)
+(setq sml/theme 'respectful)
+(sml/setup)
+
+(require 'moe-theme)
+(moe-dark)
