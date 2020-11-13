@@ -140,5 +140,5 @@
 (setq sml/theme 'respectful)
 (sml/setup)
 
-(require 'moe-theme)
-(moe-dark)
+(require 'kaolin-themes)
+(load-theme 'kaolin-valley-dark)
