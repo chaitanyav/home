@@ -28,7 +28,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode powerline ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu))
 
 
 					; fetch the list of packages available
@@ -133,3 +133,8 @@
 (require 'auto-complete)
 (ac-config-default)
 (global-auto-complete-mode)
+
+(require 'ace-popup-menu)
+(ace-popup-menu-mode t)
+
+(require 'ace-window)
