@@ -28,7 +28,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode lsp-ui lsp-treemacs company eglot rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -157,3 +157,23 @@
 (require 'dumb-jump)
 (setq dumb-jump-force-searcher 'rg)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+
+(require 'eglot)
+(add-to-list 'eglot-server-programs '((c++-mode c-mode) ("/usr/bin/clangd-9" "-log=verbose")))
+(add-hook 'c-mode-hook 'eglot-ensure)
+(add-hook 'c++-mode-hook 'eglot-ensure)
+
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(require 'lsp-ui)
+(add-hook 'prog-mode-hook 'lsp-ui-mode)
+(setq lsp-ui-sideline-enable t)
+(setq lsp-ui-sideline-show-hover nil)
+(setq lsp-ui-doc-position 'bottom)
+(lsp-ui-doc-show)
+
+(require 'lsp-mode)
+(setq lsp-keymap-prefix "C-c l")
+(add-hook 'prog-mode-hook #'lsp-deferred)
+(lsp-enable-which-key-integration t)
