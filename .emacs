@@ -1,3 +1,9 @@
+;;; .emacs
+;;; Commentary:
+;;
+;; My Emacs configuration
+;;
+;;; Code:
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -5,8 +11,9 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (afternoon)))
- '(package-selected-packages (quote (magit flycheck elpy slime powerline centaur-tabs))))
+ ;;'(custom-enabled-themes (quote (afternoon)))
+ ;;'(package-selected-packages (quote (magit flycheck elpy slime powerline centaur-tabs)))
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -14,11 +21,22 @@
  ;; If there is more than one, they won't work right.
  )
 
+(setq comp-deferred-compilation t)
+(setq gc-cons-threshold (* 1024 1024 512)) ;; 512mb
+(setq read-process-output-max (* 1024 1024 20)) ;; 20mb
 (setq inhibit-startup-message t)
+(setq scroll-bar-mode nil)        ; Disable visible scrollbar
+(setq tool-bar-mode nil)          ; Disable the toolbar
+(setq tooltip-mode nil)           ; Disable tooltips
+(set-fringe-mode 10)       ; Give some breathing room
+(setq menu-bar-mode nil)            ; Disable the menu bar
 (setq column-number-mode t)
 (setq line-number-mode t)
-(global-linum-mode t)
+(setq global-linum-mode t)
 (setq show-paren-mode t)
+;;(setq debug-on-error t)
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 (windmove-default-keybindings)
 
 (require 'package)
@@ -28,7 +46,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode lsp-ui lsp-treemacs company eglot rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump))
+(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -39,19 +57,9 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(elpy-enable)
-
-					; Use IPython for REPL
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-prompt"
-      python-shell-prompt-detect-failure-warning nil)
-(add-to-list 'python-shell-completion-native-disabled-interpreters
-             "jupyter")
-
 ;; Enable Flycheck
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(require 'flycheck)
+(add-hook 'prog-mode-hook 'flycheck-mode)
 
 ;; Enable autopep8
 (require 'py-autopep8)
@@ -138,7 +146,7 @@
 (require 'ace-window)
 
 (require 'smart-mode-line)
-(setq sml/theme 'respectful)
+(setq sml/theme 'dark)
 (sml/setup)
 
 (require 'treemacs)
@@ -158,22 +166,35 @@
 (setq dumb-jump-force-searcher 'rg)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
-(require 'eglot)
-(add-to-list 'eglot-server-programs '((c++-mode c-mode) ("/usr/bin/clangd-9" "-log=verbose")))
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1)
 
 (require 'lsp-ui)
 (add-hook 'prog-mode-hook 'lsp-ui-mode)
 (setq lsp-ui-sideline-enable t)
 (setq lsp-ui-sideline-show-hover nil)
 (setq lsp-ui-doc-position 'bottom)
-(lsp-ui-doc-show)
+(define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+(define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+;;(lsp-ui-peek-find-workspace-symbol "pattern 0")
+;; If the server supports custom cross references
+;;(lsp-ui-peek-find-custom 'base "$cquery/base")
+(setq lsp-ui-peek-enable t)
+(setq lsp-ui-doc-enable t)
 
 (require 'lsp-mode)
-(setq lsp-keymap-prefix "C-c l")
+(setq lsp-completion-provider :capf)
+(setq lsp-print-performance t)
+(setq lsp-enable-file-watchers nil)
+(setq lsp-enable-which-key-integration t)
+;;(lsp-modeline-diagnostics-mode t)
+;;(lsp-modeline-code-actions-mode t)
+;;(lsp-headerline-breadcrumb-mode t)
 (add-hook 'prog-mode-hook #'lsp-deferred)
-(lsp-enable-which-key-integration t)
+(add-hook 'prog-mode-hook #'lsp-modeline-code-actions-mode)
+(add-hook 'prog-mode-hook #'lsp-headerline-breadcrumb-mode)
+(add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
+(provide '.emacs)
+;;; .emacs ends here
