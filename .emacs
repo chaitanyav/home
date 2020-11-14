@@ -28,7 +28,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode))
+(setq package-list '(afternoon-theme elpy flycheck py-autopep8 magit blacken lsp-mode rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -148,3 +148,7 @@
 
 (require 'rg)
 (require 'markdown-mode)
+(require 'xkcd)
+
+(require 'which-key)
+(which-key-mode t)
