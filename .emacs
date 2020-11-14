@@ -1,26 +1,11 @@
 ;;; .emacs
-;;; Commentary:
+;;; Commentary: --**--
 ;;
 ;; My Emacs configuration
 ;;
 ;;; Code:
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- ;;'(custom-enabled-themes (quote (afternoon)))
- ;;'(package-selected-packages (quote (magit flycheck elpy slime powerline centaur-tabs)))
- )
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
 (setq comp-deferred-compilation t)
 (setq gc-cons-threshold (* 1024 1024 512)) ;; 512mb
 (setq read-process-output-max (* 1024 1024 20)) ;; 20mb
@@ -34,9 +19,9 @@
 (setq line-number-mode t)
 (setq global-linum-mode t)
 (setq show-paren-mode t)
+(setq visible-bell t)
+
 ;;(setq debug-on-error t)
-(set-language-environment "UTF-8")
-(set-default-coding-systems 'utf-8)
 (windmove-default-keybindings)
 
 (require 'package)
@@ -46,7 +31,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump))
+(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump unicode-fonts helm helm-swoop))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -56,6 +41,12 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+(require 'unicode-fonts)
+(unicode-fonts-setup)
+
+(require 'helm)
+(require 'helm-swoop)
 
 ;; Enable Flycheck
 (require 'flycheck)
@@ -77,7 +68,8 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;(require 'whitespace-mode)
-;;(require 'prettify-symbols-mode)
+;;(require 'pretty-symbols-mode)
+(global-prettify-symbols-mode)
 
 (require 'ranger)
 (ranger-override-dired-mode t)
@@ -189,12 +181,10 @@
 (setq lsp-print-performance t)
 (setq lsp-enable-file-watchers nil)
 (setq lsp-enable-which-key-integration t)
-;;(lsp-modeline-diagnostics-mode t)
-;;(lsp-modeline-code-actions-mode t)
-;;(lsp-headerline-breadcrumb-mode t)
 (add-hook 'prog-mode-hook #'lsp-deferred)
 (add-hook 'prog-mode-hook #'lsp-modeline-code-actions-mode)
+;;(lsp-ui-sideline-toggle-symbols-info t)
 (add-hook 'prog-mode-hook #'lsp-headerline-breadcrumb-mode)
-(add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
+;;(add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
 (provide '.emacs)
 ;;; .emacs ends here
