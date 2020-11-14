@@ -155,4 +155,5 @@
 (which-key-mode t)
 
 (require 'dumb-jump)
+(setq dumb-jump-force-searcher 'rg)
 (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
