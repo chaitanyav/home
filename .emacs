@@ -13,7 +13,7 @@
 (setq scroll-bar-mode nil)        ; Disable visible scrollbar
 (setq tool-bar-mode nil)          ; Disable the toolbar
 (setq tooltip-mode nil)           ; Disable tooltips
-(set-fringe-mode 10)       ; Give some breathing room
+(set-fringe-mode nil)       ; Give some breathing room
 (setq menu-bar-mode nil)            ; Disable the menu bar
 (setq column-number-mode t)
 (setq line-number-mode t)
@@ -31,7 +31,7 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide zoom all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump unicode-fonts helm helm-swoop))
+(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide golden-ratio all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump unicode-fonts helm helm-swoop))
 
 					; fetch the list of packages available
 (unless package-archive-contents
@@ -44,6 +44,9 @@
 
 (require 'unicode-fonts)
 (unicode-fonts-setup)
+
+(require 'golden-ratio)
+(golden-ratio-mode t)
 
 (require 'helm)
 (require 'helm-swoop)
@@ -68,7 +71,6 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;;(require 'whitespace-mode)
-;;(require 'pretty-symbols-mode)
 (global-prettify-symbols-mode)
 
 (require 'ranger)
@@ -80,8 +82,6 @@
 (require 'highlight-symbol)
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 (setq highlight-symbol-on-navigation-p t)
-
-
 
 (require 'highlight-numbers)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
@@ -122,9 +122,6 @@
 (require 'indent-guide)
 (add-hook 'prog-mode-hook 'indent-guide-mode)
 
-(require 'zoom)
-(zoom-mode t)
-
 (require 'all-the-icons)
 ;;(all-the-icons-install-fonts)
 
@@ -141,11 +138,10 @@
 (setq sml/theme 'dark)
 (sml/setup)
 
-(require 'treemacs)
+;; (require 'treemacs)
 
 (require 'kaolin-themes)
 (load-theme 'kaolin-valley-dark)
-(kaolin-treemacs-theme)
 
 (require 'rg)
 (require 'markdown-mode)
@@ -167,7 +163,7 @@
 (add-hook 'prog-mode-hook 'lsp-ui-mode)
 (setq lsp-ui-sideline-enable t)
 (setq lsp-ui-sideline-show-hover nil)
-(setq lsp-ui-doc-position 'bottom)
+(setq lsp-ui-doc-position 'right)
 (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
 (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
 ;;(lsp-ui-peek-find-workspace-symbol "pattern 0")
@@ -185,6 +181,6 @@
 (add-hook 'prog-mode-hook #'lsp-modeline-code-actions-mode)
 ;;(lsp-ui-sideline-toggle-symbols-info t)
 (add-hook 'prog-mode-hook #'lsp-headerline-breadcrumb-mode)
-;;(add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
+(add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
 (provide '.emacs)
 ;;; .emacs ends here
