@@ -6,7 +6,7 @@ URxvt.preeditType:Root
 
 !!! Colors
 URxvt.depth:32
-URxvt.background:#2B2B2B
+URxvt.background:#000000
 URxvt.foreground:white
 URxvt.colorBD:Gray95
 URxvt.colorUL:Green
@@ -26,8 +26,9 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
-URxvt.font:xft:Terminus:autohint=true:pixelsize=16
-URxvt.boldFont:xft:Terminus:autohint=true:pixelsize=16
+URxvt.font:xft:Hack:style=Regular:size=13
+URxvt.boldFont:xft:Hack:style=Bold:size=13
+URxvt.italicFont:xft:Hack:style=Oblique:size=13
 
 Xcursor.theme: Human
 
