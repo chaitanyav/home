@@ -182,5 +182,16 @@
 ;;(lsp-ui-sideline-toggle-symbols-info t)
 (add-hook 'prog-mode-hook #'lsp-headerline-breadcrumb-mode)
 (add-hook 'prog-mode-hook #'lsp-modeline-diagnostics-mode)
+
+;;https://stackoverflow.com/questions/2680389/how-to-remove-all-files-ending-with-made-by-emacs
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+      backup-by-copying t    ; Don't delink hardlinks
+      version-control t      ; Use version numbers on backups
+      delete-old-versions t  ; Automatically delete excess backups
+      kept-new-versions 20   ; how many of the newest versions to keep
+      kept-old-versions 5    ; and how many of the old
+      )
+
+
 (provide '.emacs)
 ;;; .emacs ends here
