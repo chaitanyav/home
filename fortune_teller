@@ -1,11 +1,11 @@
-#!/usr/bin/ruby
-
+#!env -S ruby -W0
+require 'gold_mine'
 tellers = `cowsay -l`
 tellers = tellers.split("\n")
 tellers.delete(tellers.first)
 tellers = tellers.first.split(/\s/)
 tellers.shuffle!(random: Random.new(1))
 
-programs = ['cowsay', 'cowthink']
-system("fortune -as | #{programs.sample} -e eyes -T tongue -f #{tellers.sample} | lolcat")
+fortune = GoldMine::DB.new.random
+system("cowsay -f #{tellers.sample} '#{fortune.content}' | lolcat")
 

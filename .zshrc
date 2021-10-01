@@ -105,7 +105,9 @@ man() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-export PATH=$HOME:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
+export PATH=$HOME:$HOME/.cargo/bin:$HOME/.local/bin:$HOME/.gem/bin:$PATH
 alias python="python3"
 ~/./art
 ~/./fortune_teller

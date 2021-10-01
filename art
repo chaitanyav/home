@@ -1,5 +1,4 @@
-#!/usr/bin/ruby
-
+#!env ruby
 #arts = Dir.glob('art*.txt')
 arts= ['art2.txt', 'art4.txt']
 
