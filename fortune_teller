@@ -7,5 +7,6 @@ tellers = tellers.first.split(/\s/)
 tellers.shuffle!(random: Random.new(1))
 
 fortune = GoldMine::DB.new.random
-system("cowsay -f #{tellers.sample} '#{fortune.content}' | lolcat")
+cmd = %Q(cowsay -f '#{tellers.sample}' \"#{fortune.content}\" | lolcat)
+system(cmd)
 
