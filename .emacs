@@ -31,12 +31,11 @@
 ;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (package-initialize)
-(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide golden-ratio all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key dumb-jump unicode-fonts helm helm-swoop))
+(setq package-list '(afternoon-theme flycheck magit blacken lsp-mode lsp-ui lsp-treemacs company rust-mode smart-mode-line ranger rainbow-delimiters go-mode undo-tree highlight-symbol highlight-parentheses highlight-numbers popup-kill-ring ace-jump-mode centaur-tabs format-all whitespace-cleanup-mode origami indent-guide golden-ratio all-the-icons auto-complete ace-popup-menu moe-theme monokai-theme monokai-pro-theme ample-theme kaolin-themes ace-window treemacs rg markdown-mode xkcd which-key unicode-fonts helm helm-swoop ctrlf anzu goto-line-preview focus))
 
 					; fetch the list of packages available
 (unless package-archive-contents
   (package-refresh-contents))
-
 					; install the missing packages
 (dolist (package package-list)
   (unless (package-installed-p package)
@@ -150,14 +149,19 @@
 (require 'which-key)
 (which-key-mode t)
 
-(require 'dumb-jump)
-(setq dumb-jump-force-searcher 'rg)
-(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+(require 'ctrlf)
+(setq ctrlf-mode t)
+
+(require 'anzu)
+(setq anzu-mode t)
 
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 1)
+
+(require 'goto-line-preview)
+(define-key global-map [remap goto-line] 'goto-line-preview)
 
 (require 'lsp-ui)
 (add-hook 'prog-mode-hook 'lsp-ui-mode)
