@@ -230,7 +230,7 @@ local config = {
          { "folke/tokyonight.nvim" },
          { "navarasu/onedark.nvim" ,
             require('onedark').setup {
-            style = 'deep'
+              style = 'deep',
             },
             require('onedark').load(),
          },
