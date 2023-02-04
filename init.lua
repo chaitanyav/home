@@ -223,6 +223,20 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
+         { "yamatsum/nvim-cursorline",
+            require('nvim-cursorline').setup {
+            cursorline = {
+                enable = true,
+                timeout = 1000,
+                number = false,
+            },
+            cursorword = {
+                enable = true,
+                min_length = 3,
+                hl = { underline = true },
+            },
+            },
+         },
          { "sindrets/diffview.nvim",
            requires = "nvim-lua/plenary.nvim",
          },
