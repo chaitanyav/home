@@ -223,6 +223,9 @@ local config = {
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
+         { "sindrets/diffview.nvim",
+           requires = "nvim-lua/plenary.nvim",
+         },
          { "nanozuki/tabby.nvim" },
          { "EdenEast/nightfox.nvim" },
          { "folke/tokyonight.nvim" },
