@@ -226,7 +226,6 @@ local config = {
          { "sindrets/diffview.nvim",
            requires = "nvim-lua/plenary.nvim",
          },
-         { "nanozuki/tabby.nvim" },
          { "EdenEast/nightfox.nvim" },
          { "folke/tokyonight.nvim" },
          { "navarasu/onedark.nvim" ,
