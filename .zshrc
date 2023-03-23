@@ -86,6 +86,9 @@ export LESS_TERMCAP_ue=$default
 # Begin underline
 export LESS_TERMCAP_us=$green
 
+# GPG
+export GPG_TTY=$(tty)
+
 # color manpages
 man() {
     env \
